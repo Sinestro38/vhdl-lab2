@@ -71,7 +71,10 @@ begin
 
 	hex_A <= SW(3 downto 0);
 	hex_B <= SW(7 downto 4);
-	leds <= pb;
+	--leds(0) <= pb(0);
+	--leds(1) <= pb(1);
+	--leds(2) <= pb(2);
+	--leds(3) <= pb(3);
 	--seg7_data <= seg7_A;
 	
 	INST1: SevenSegment port map(hex_A, seg7_A);
@@ -80,9 +83,9 @@ begin
 
 	INST3: segment7_mux port map(clkin_50, seg7_A, seg7_B, seg7_data, seg7_char2, seg7_char1);
 	
-	INST4: LogicProcessorMUX port map(hex_A, hex_B, pb,logic_selector);
+	INST4: LogicProcessorMUX port map(hex_A, hex_B, leds(3 downto 0), pb(1 downto 0));
 	
-	INST5: PB_Inverters port map(pb_n, pb)
+	INST5: PB_Inverters port map(pb_n, pb);
  
 end SimpleCircuit;
 

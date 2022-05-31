@@ -12,5 +12,9 @@ end PB_Inverters;
 architecture gates of PB_Inverters is
 begin
 
-pbo <= not(pbn);
+pbo(0) <= not pbn(0);
+pbo(1) <= not pbn(1);
+pbo(2) <= not pbn(2);
+pbo(3) <= not pbn(3);
+
 end gates;
